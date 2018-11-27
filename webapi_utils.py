@@ -16,6 +16,7 @@ class WebApi(object):
         try:
             uri_params = params.copy()
             uri_params['key'] = get_config().WEBAPI_TOKEN
+            uri_params['id'] = get_config().NODE_ID
             res = self.session_pool.get(
                 '%s/mod_mu/%s' %
                 (get_config().WEBAPI_URL, uri),
@@ -44,6 +45,7 @@ class WebApi(object):
         try:
             uri_params = params.copy()
             uri_params['key'] = get_config().WEBAPI_TOKEN
+            uri_params['id'] = get_config().NODE_ID
             res = self.session_pool.post(
                 '%s/mod_mu/%s' %
                 (get_config().WEBAPI_URL,
